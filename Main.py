@@ -1,20 +1,41 @@
 from Beams import Cantilever_LeftEndFree_RighEndFixed
 from MaterialDataBase import ReadData
 from SectionSettings import TeeSection
+from Shear_Stress import *
 
-W = 35000 #N
-l = 250
-a = 50
+Fx = 35000 #N
+Fy = 1000  #N
+l = 200
+a = 0
 
 
 MaterialInput    = ReadData('StellDataBase.csv','S355')
 
-SectionInput     = TeeSection(300,50,5,5)
+SectionInput     = TeeSection(150,300,5,5)
 
 
-Cantilever_LeftEndFree_RighEndFixed(W,l,a,MaterialInput,SectionInput)
+BeamResult = Cantilever_LeftEndFree_RighEndFixed(Fx,Fy,l,a,MaterialInput,SectionInput)
 
 
-#Test
+"""
+def shear(F,A):
+    tau = F/A
 
-#Work!
+def Stress(M,y,I):
+    Sigma = -(M*y)/I
+"""
+
+
+
+
+Sigma = Stress(BeamResult[0][1],BeamResult[1][1],SectionInput)
+Tau   = shear(BeamResult[0][0],BeamResult[1][0],SectionInput)
+
+
+
+
+VonMisses(Sigma[0],Tau[0])
+VonMisses(Sigma[1],Tau[1])
+
+
+#shear(W,SectionInput)
