@@ -34,4 +34,5 @@ def TeeSection(b,d,t,t_w):
 
     return A,y_c,x_c,I_x,I_y
 
+
 TeeSection(100,100,5,5)

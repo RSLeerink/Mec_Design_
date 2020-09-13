@@ -3,10 +3,10 @@ from MaterialDataBase import ReadData
 from SectionSettings import TeeSection
 from Shear_Stress import *
 
-Fx = 35000 #N
-Fy = 1000  #N
-l = 200
-a = 0
+#Fx = 35000 #N
+#Fy = 1000  #N
+#l = 200
+#a = 0
 
 
 MaterialInput    = ReadData('StellDataBase.csv','S355')

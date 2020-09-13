@@ -32,7 +32,6 @@ def Stress(Mx,My,SectionInput):
 
     return Sigma_x,Sigma_y
 
-
 def VonMisses(Sigma,Tau):
     
     VM = sqrt(Sigma**2 +( 3*Tau**2))
